@@ -1,0 +1,17 @@
+{
+  "name": "vue2-chars",
+  "version": "1.0.0",
+  "description": "A string of tokens that produces that many single input boxes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue2",
+    "vue2js",
+    "vue2-chars",
+    "vue2chars"
+  ],
+  "author": "David Buss",
+  "license": "MIT"
+}
