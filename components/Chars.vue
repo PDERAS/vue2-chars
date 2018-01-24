@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        name: 'vue-chars',
+        name: 'chars',
 
         props: {
             value: {

@@ -6,7 +6,7 @@ The value, however, will be one connected string (e.i. Not a bunch of single cha
 Vue chars is built as a vue plugin to allow for use throughout the application.
 
 ```javascript
-import Chars from "vue2-chars";
+import Chars from "@pderas/vue2-chars";
 
 Vue.use(Chars);
 ```
