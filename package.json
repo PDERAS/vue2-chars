@@ -1,6 +1,6 @@
 {
   "name": "@pderas/vue2-chars",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A string of tokens that produces that many single input boxes",
   "main": "index.js",
   "scripts": {
