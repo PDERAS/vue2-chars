@@ -1,12 +1,12 @@
 <template>
     <div class="boxed-input">
-        <input v-for="(char, idx) in mask"
+        <input class="box-input"
                :ref="'box-input-' + idx"
                :id="'box-input-' + idx"
-               @input="update(idx, $event)"
                :value="values[idx]"
-               class="box-input"
-               @keyup.delete="moveBack(idx)">
+               @input="update(idx, $event)"
+               @keyup.delete="moveBack(idx)"
+               v-for="(char, idx) in mask" >
     </div>
 </template>
 
@@ -16,7 +16,8 @@
 
         props: {
             value: {
-                required: true
+                type: [String, Number],
+                default: 0
             },
 
             mask: {
@@ -34,14 +35,14 @@
         },
 
         data: () => ({
-            values: [],
             masks: {
                 '#': { pattern: /\d/ },
                 'X': { pattern: /[0-9a-zA-Z]/ },
                 'S': { pattern: /[a-zA-Z]/ },
                 'A': { pattern: /[a-zA-Z]/, transform: v => v.toLocaleUpperCase() },
                 'a': { pattern: /[a-zA-Z]/, transform: v => v.toLocaleLowerCase() }
-            }
+            },
+            values: []
         }),
 
         created() {
@@ -57,7 +58,13 @@
             }
         },
 
-        methods: {
+        methods: {,
+            moveBack(idx) {
+                var prev = this.$refs['box-input-' + (idx - 1)];
+
+                if (prev) { prev[0].focus(); }
+            },
+
             update(idx, event) {
                 var values = event.target.value;
                 var ref = this.$refs['box-input-' + idx][0];
@@ -80,12 +87,6 @@
                 var next = this.$refs['box-input-' + (idx + 1)];
 
                 if (next) { next[0].focus(); }
-            },
-
-            moveBack(idx) {
-                var prev = this.$refs['box-input-' + (idx - 1)];
-
-                if (prev) { prev[0].focus(); }
             }
         }
     }
