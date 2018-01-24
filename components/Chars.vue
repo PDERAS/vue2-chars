@@ -58,7 +58,7 @@
             }
         },
 
-        methods: {,
+        methods: {
             moveBack(idx) {
                 var prev = this.$refs['box-input-' + (idx - 1)];
 
