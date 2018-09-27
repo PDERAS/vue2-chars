@@ -88,6 +88,22 @@
 
                 if (next) { next[0].focus(); }
             }
+        },
+
+        watch: {
+            value(val) {
+                if (val) {
+                    var arr = val.split('');
+                    this.mask.split('').forEach((char, idx) => {
+                        this.values[idx] = arr[idx];
+                    });
+                } else {
+                    this.mask.split('').forEach((char, idx) => {
+                        this.values[idx] = null;
+                    });
+                }
+                this.$forceUpdate();
+            }
         }
     }
 </script>
