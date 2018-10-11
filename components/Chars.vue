@@ -62,6 +62,11 @@
             moveBack(idx) {
                 var prev = this.$refs['box-input-' + (idx - 1)];
 
+                if (this.values[idx]) {
+                    this.values.splice(idx, 1);
+                }
+                this.$emit('input', this.values.join(''));
+                
                 if (prev) { prev[0].focus(); }
             },
 
